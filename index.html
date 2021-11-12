@@ -1,0 +1,154 @@
+<!doctype HTML>
+<html>
+    <head>
+        <script src="main.js"></script>
+        <style>
+            ::-webkit-scrollbar {
+                width: 10px;
+                height: 10px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: #ddd;
+                border: 2px solid #fff;
+                border-radius: 5px;
+            }
+
+            body {
+                width: 100%;
+                height: 100vh;
+                font-family: sans-serif;
+                overflow: hidden;
+            }
+
+            h1 {
+                text-align: center;
+                margin: 50px 0;
+            }
+
+            .user-list, .post-list {
+                width: 1100px;
+                margin: 40px auto;
+                opacity: 1;
+                transition: opacity 0.4s ease;
+            }
+
+            .user-list .user, .post-list .post {
+                padding: 20px 15px;
+                border: 1px solid #ededed;
+                border-radius: 10px;
+            }
+
+            .user-list .container, .post-list .container {
+                display: grid;
+                gap: 20px;
+                max-height: calc(100vh - 240px);
+                overflow: scroll;
+            }
+
+            .user-list .container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .post-list .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .user {
+                width: 220px;
+            }
+
+            .user .name {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .user .phone {
+                font-size: 13px;
+                margin: 5px 0;
+            }
+
+            .user button {
+                color: #fff;
+                background: #f07575;
+                padding: 6px 10px;
+                font-size: 14px;
+                border: 0;
+                border-radius: 4px;
+                margin-top: 10px;
+                float: right;
+                cursor: pointer;
+                transition: background 0.4s ease;
+            }
+
+            .user button:hover {
+                background: #f28c8c;
+            }
+
+            .post {
+                width: 280px;
+            }
+
+            .title {
+                position: relative;
+            }
+
+            .title .back-btn {
+                display: block;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                top: 0;
+                left: -40px;
+                cursor: pointer;
+            }
+
+            .title .back-btn::before {
+                display: block;
+                content: "";
+                width: 12px;
+                height: 12px;
+                border: 3px solid #888;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-radius: 1px;
+                box-sizing: border-box;
+                position: relative;
+                left: 12px;
+                top: 9px;
+                transform: rotateZ(-45deg);
+                transition: all 0.4s ease;
+            }
+
+            .title .back-btn:hover::before {
+                transform: rotate(-45deg) scale(1.3);
+            }
+
+            .on-hide {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>REST API</h1>
+        <div class="user-list">
+            <div class="title">
+                <h2>Users</h2>
+            </div>
+            <div class="container">Nothing to show</div>
+        </div>
+        <div class="post-list hidden">
+            <div class="title">
+                <span class="back-btn"></span>
+                <h2>Posts</h2>
+            </div>
+            <div class="container">This user has no posts</div>
+        </div>
+    </body>
+</html>
